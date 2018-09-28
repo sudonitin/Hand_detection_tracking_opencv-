@@ -43,13 +43,6 @@ while True:
         centre_x = (west[0]+east[0])/2
         centre_y = (north[0]+south[0])/2
 
-        #calculate the highest length of an extreme point with centre
-        length = pairwise.euclidean_distances([(centre_x,centre_y)], Y = [west, east, north, south])
-        max_length = distance[distance.argmax()]
-
-        #use this length as radius to draw circle tracker
-        radius = int(0.8*max_length)
-        
         cv2.drawContours(flipped, b, -1, (0,255,0), 3)
         cv2.circle(flipped, west, 6, (0,0,255), -1)
         cv2.circle(flipped, east, 6, (0,0,255), -1)
